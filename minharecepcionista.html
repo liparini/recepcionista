@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minha Recepcionista – Atendimento Humano para Clínicas</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--verde:#0F6E56;--verde-claro:#1D9E75;--verde-bg:#E1F5EE;--verde-borda:#9FE1CB;
+--areia:#FAF8F4;--branco:#fff;--preto:#1a1a1a;--cinza:#5F5E5A;--cinza-claro:#F1EFE8;
+}
+body{font-family:'DM Sans',sans-serif;color:var(--preto);background:var(--branco);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:99;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);border-bottom:1px solid #e8e4dd;padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--verde);letter-spacing:-0.5px}
+.logo span{color:var(--preto)}
+.nav-links{display:flex;gap:32px;font-size:14px;font-weight:500;color:var(--cinza)}
+.nav-links a:hover{color:var(--verde)}
+.nav-cta{background:var(--verde);color:#fff;padding:10px 22px;border-radius:100px;font-size:14px;font-weight:600;transition:background 0.2s;cursor:pointer;border:none}
+.nav-cta:hover{background:var(--verde-claro)}
+
+/* HERO */
+.hero{min-height:92vh;background:var(--areia);display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0 8%;gap:60px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;right:-120px;top:-120px;width:500px;height:500px;border-radius:50%;background:var(--verde-bg);opacity:0.5;z-index:0}
+.hero-content{position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--verde-bg);color:var(--verde);padding:6px 16px;border-radius:100px;font-size:13px;font-weight:600;margin-bottom:28px;border:1px solid var(--verde-borda)}
+.hero-badge::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--verde-claro);display:inline-block;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+h1{font-family:'Playfair Display',serif;font-size:52px;line-height:1.12;font-weight:700;letter-spacing:-1.5px;margin-bottom:20px}
+h1 em{font-style:italic;color:var(--verde)}
+.hero p{font-size:17px;line-height:1.7;color:var(--cinza);max-width:480px;margin-bottom:36px}
+.hero-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.btn-primary{background:var(--verde);color:#fff;padding:15px 30px;border-radius:100px;font-size:15px;font-weight:600;transition:all 0.2s;cursor:pointer;border:none;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{background:var(--verde-claro);transform:translateY(-1px)}
+.btn-secondary{color:var(--verde);font-size:15px;font-weight:600;display:inline-flex;align-items:center;gap:6px;border:2px solid var(--verde-borda);padding:13px 24px;border-radius:100px;transition:all 0.2s;cursor:pointer;background:transparent}
+.btn-secondary:hover{background:var(--verde-bg)}
+.hero-visual{position:relative;z-index:1}
+.chat-mockup{background:#fff;border-radius:20px;border:1px solid #e0dbd2;padding:20px;box-shadow:0 20px 60px rgba(15,110,86,0.1);max-width:380px;margin-left:auto}
+.chat-header{display:flex;align-items:center;gap:12px;padding-bottom:16px;border-bottom:1px solid #f0ede8;margin-bottom:16px}
+.avatar{width:42px;height:42px;border-radius:50%;background:var(--verde-bg);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:15px;color:var(--verde);flex-shrink:0}
+.chat-header-info strong{display:block;font-size:14px;font-weight:600}
+.online{font-size:12px;color:var(--verde-claro);display:flex;align-items:center;gap:4px}
+.online::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--verde-claro);display:inline-block}
+.msg{margin-bottom:12px}
+.msg-bubble{display:inline-block;max-width:85%;padding:10px 14px;border-radius:16px;font-size:13px;line-height:1.5}
+.msg-in .msg-bubble{background:var(--cinza-claro);border-radius:4px 16px 16px 16px;color:var(--preto)}
+.msg-out{text-align:right}
+.msg-out .msg-bubble{background:var(--verde);color:#fff;border-radius:16px 4px 16px 16px}
+.msg-time{font-size:10px;color:#aaa;margin-top:3px;display:block}
+.msg-in .msg-time{text-align:left;padding-left:4px}
+.typing{display:flex;gap:4px;align-items:center;padding:10px 14px;background:var(--cinza-claro);border-radius:4px 16px 16px 16px;width:fit-content;margin-top:8px}
+.typing span{width:6px;height:6px;border-radius:50%;background:#aaa;animation:typing 1.2s infinite}
+.typing span:nth-child(2){animation-delay:0.2s}
+.typing span:nth-child(3){animation-delay:0.4s}
+@keyframes typing{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+
+/* STATS */
+.stats{padding:40px 8%;background:#fff;display:grid;grid-template-columns:repeat(3,1fr);gap:32px;border-bottom:1px solid #f0ede8}
+.stat{text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--verde);display:block}
+.stat-label{font-size:14px;color:var(--cinza);margin-top:4px}
+
+/* SEÇÕES */
+.section-label{font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--verde);margin-bottom:16px}
+.section-title{font-family:'Playfair Display',serif;font-size:38px;font-weight:700;line-height:1.15;letter-spacing:-0.5px;max-width:560px;margin-bottom:20px}
+.section-sub{font-size:16px;color:var(--cinza);line-height:1.7;max-width:520px;margin-bottom:56px}
+
+/* PROBLEMAS */
+.problemas{padding:90px 8%;background:var(--areia)}
+.problemas-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.problema-card{background:#fff;border:1px solid #e8e4dd;border-radius:16px;padding:24px;display:flex;gap:16px;align-items:flex-start;transition:box-shadow 0.2s}
+.problema-card:hover{box-shadow:0 8px 32px rgba(0,0,0,0.06)}
+.problema-icon{width:44px;height:44px;border-radius:12px;background:#FEF3F2;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.problema-card h3{font-size:15px;font-weight:600;margin-bottom:6px}
+.problema-card p{font-size:14px;color:var(--cinza);line-height:1.6}
+
+/* SERVIÇOS */
+.servicos{padding:90px 8%;background:#fff}
+.servicos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
+.servico-card{border:1px solid #e8e4dd;border-radius:20px;padding:28px;transition:all 0.2s;cursor:default}
+.servico-card:hover{border-color:var(--verde-borda);background:var(--verde-bg)}
+.servico-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--verde-borda);margin-bottom:16px;line-height:1}
+.servico-card h3{font-size:16px;font-weight:600;margin-bottom:10px}
+.servico-card p{font-size:14px;color:var(--cinza);line-height:1.7}
+
+/* PLANOS */
+.planos{padding:90px 8%;background:var(--areia)}
+.planos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
+.plano{background:#fff;border:1px solid #e8e4dd;border-radius:20px;padding:32px;position:relative}
+.plano.destaque{border:2px solid var(--verde)}
+.plano-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--verde);color:#fff;font-size:12px;font-weight:700;padding:5px 18px;border-radius:100px;white-space:nowrap;letter-spacing:0.5px}
+.plano-nome{font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cinza);margin-bottom:12px}
+.plano-preco{font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:var(--preto);margin-bottom:4px}
+.plano-preco span{font-family:'DM Sans',sans-serif;font-size:16px;font-weight:400;color:var(--cinza)}
+.plano-desc{font-size:13px;color:var(--cinza);margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid #f0ede8}
+.plano-lista{list-style:none;margin-bottom:28px}
+.plano-lista li{font-size:14px;padding:7px 0;border-bottom:1px solid #f7f5f1;display:flex;gap:10px;align-items:flex-start;color:var(--cinza)}
+.plano-lista li::before{content:'✓';color:var(--verde);font-weight:700;flex-shrink:0;margin-top:1px}
+.plano-btn{display:block;width:100%;padding:14px;border-radius:100px;font-size:14px;font-weight:600;text-align:center;cursor:pointer;border:none;transition:all 0.2s}
+.plano-btn-outline{background:transparent;border:2px solid var(--verde);color:var(--verde)}
+.plano-btn-outline:hover{background:var(--verde-bg)}
+.plano-btn-solid{background:var(--verde);color:#fff}
+.plano-btn-solid:hover{background:var(--verde-claro)}
+.setup-note{text-align:center;margin-top:24px;font-size:13px;color:var(--cinza)}
+
+/* COMO FUNCIONA */
+.como{padding:90px 8%;background:#fff}
+.como-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:52px;position:relative}
+.como-steps::before{content:'';position:absolute;top:32px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--verde-borda),transparent);z-index:0}
+.step{text-align:center;position:relative;z-index:1}
+.step-circle{width:64px;height:64px;border-radius:50%;background:var(--verde-bg);border:2px solid var(--verde-borda);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--verde);margin:0 auto 20px}
+.step h3{font-size:15px;font-weight:600;margin-bottom:8px}
+.step p{font-size:13px;color:var(--cinza);line-height:1.6}
+
+/* FAQ */
+.faq{padding:90px 8%;background:var(--areia)}
+.faq-list{max-width:720px;margin:52px auto 0}
+.faq-item{border-bottom:1px solid #e0dbd2;padding:24px 0;cursor:pointer}
+.faq-item summary{font-size:16px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';font-size:22px;color:var(--verde);flex-shrink:0;transition:transform 0.2s}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item p{font-size:15px;color:var(--cinza);line-height:1.7;margin-top:16px}
+
+/* CTA FINAL */
+.cta-final{padding:100px 8%;background:var(--verde);text-align:center;position:relative;overflow:hidden}
+.cta-final::before{content:'';position:absolute;top:-80px;left:-80px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,0.05)}
+.cta-final::after{content:'';position:absolute;bottom:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,0.05)}
+.cta-final h2{font-family:'Playfair Display',serif;font-size:44px;font-weight:700;color:#fff;letter-spacing:-1px;margin-bottom:16px;position:relative;z-index:1}
+.cta-final p{font-size:17px;color:rgba(255,255,255,0.8);margin-bottom:36px;position:relative;z-index:1}
+.btn-branco{background:#fff;color:var(--verde);padding:16px 36px;border-radius:100px;font-size:16px;font-weight:700;cursor:pointer;border:none;transition:all 0.2s;position:relative;z-index:1;display:inline-block}
+.btn-branco:hover{background:var(--verde-bg);transform:translateY(-2px)}
+.cta-sub{font-size:13px;color:rgba(255,255,255,0.6);margin-top:16px;position:relative;z-index:1}
+.contato-box{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:16px;padding:20px 32px;display:inline-flex;align-items:center;gap:16px;margin-top:28px;position:relative;z-index:1}
+.contato-box strong{color:#fff;font-size:16px;display:block}
+
+/* FOOTER */
+footer{background:var(--preto);padding:40px 8%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:'Playfair Display',serif;font-size:18px;color:#fff;font-weight:700}
+.footer-logo span{color:var(--verde-claro)}
+footer p{font-size:13px;color:#888}
+footer nav a{color:#888;font-size:13px;margin-left:20px;transition:color 0.2s}
+footer nav a:hover{color:#fff}
+
+/* RESPONSIVO */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;min-height:auto;padding:60px 6%}
+  .hero-visual{display:none}
+  h1{font-size:38px}
+  .stats{grid-template-columns:1fr;gap:20px;text-align:left}
+  .problemas-grid{grid-template-columns:1fr}
+  .servicos-grid{grid-template-columns:1fr 1fr}
+  .planos-grid{grid-template-columns:1fr}
+  .como-steps{grid-template-columns:1fr 1fr}
+  .como-steps::before{display:none}
+  .nav-links{display:none}
+  .cta-final h2{font-size:32px}
+}
+@media(max-width:560px){
+  .servicos-grid{grid-template-columns:1fr}
+  .como-steps{grid-template-columns:1fr}
+  footer{flex-direction:column;text-align:center}
+  footer nav{margin-top:8px}
+  footer nav a{margin:0 10px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">minha<span>recepcionista</span></div>
+  <div class="nav-links">
+    <a href="#servicos">Serviços</a>
+    <a href="#planos">Planos</a>
+    <a href="#como">Como funciona</a>
+    <a href="#faq">Dúvidas</a>
+  </div>
+  <button class="nav-cta" onclick="window.open('https://wa.me/5531288803500?text=Ol%C3%A1!+Gostaria+de+saber+mais+sobre+o+Minha+Recepcionista','_blank')">Falar conosco</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">🟢 Atendimento humanizado, 100% real</div>
+    <h1>Sua clínica atendendo no WhatsApp com <em>profissionalismo</em></h1>
+    <p>Cuidamos do atendimento via chat e WhatsApp da sua clínica como se fôssemos a sua recepcionista — de verdade, sem robôs.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.getElementById('planos').scrollIntoView({behavior:'smooth'})">Ver planos e preços →</button>
+      <button class="btn-secondary" onclick="document.getElementById('como').scrollIntoView({behavior:'smooth'})">Como funciona</button>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="chat-mockup">
+      <div class="chat-header">
+        <div class="avatar">CR</div>
+        <div class="chat-header-info">
+          <strong>Clínica Renovar</strong>
+          <div class="online">Online agora</div>
+        </div>
+      </div>
+      <div class="msg msg-in">
+        <div class="msg-bubble">Olá! Gostaria de agendar uma consulta com a Dra. Ana.</div>
+        <span class="msg-time">09:14</span>
+      </div>
+      <div class="msg msg-out">
+        <div class="msg-bubble">Olá! Tudo bem? 😊 A Dra. Ana tem horário na terça (03/06) às 10h ou 14h. Qual você prefere?</div>
+        <span class="msg-time">09:14</span>
+      </div>
+      <div class="msg msg-in">
+        <div class="msg-bubble">14h seria perfeito!</div>
+        <span class="msg-time">09:15</span>
+      </div>
+      <div class="typing"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><span class="stat-num">40%</span><span class="stat-label">Redução de faltas com confirmações ativas</span></div>
+  <div class="stat"><span class="stat-num">&lt; 3min</span><span class="stat-label">Tempo médio de primeira resposta</span></div>
+  <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Atendimento humano, nunca robotizado</span></div>
+</div>
+
+<!-- PROBLEMAS -->
+<section class="problemas" id="problemas">
+  <div class="section-label">Reconhece esses problemas?</div>
+  <h2 class="section-title">O que sua clínica perde hoje sem atendimento eficiente</h2>
+  <p class="section-sub">Pacientes que não conseguem agendar vão para a concorrência. Veja as dores que resolvemos.</p>
+  <div class="problemas-grid">
+    <div class="problema-card">
+      <div class="problema-icon">😤</div>
+      <div><h3>Recepcionista sobrecarregada</h3><p>Ela atende presencialmente e ainda responde centenas de mensagens. Algo sempre escapa.</p></div>
+    </div>
+    <div class="problema-card">
+      <div class="problema-icon">🌙</div>
+      <div><h3>Pacientes fora do horário</h3><p>Mensagens chegam à noite e no fim de semana, mas ficam sem resposta até segunda-feira.</p></div>
+    </div>
+    <div class="problema-card">
+      <div class="problema-icon">📉</div>
+      <div><h3>Alto índice de faltas</h3><p>Sem confirmação ativa no dia anterior, 1 em cada 5 pacientes simplesmente não aparece.</p></div>
+    </div>
+    <div class="problema-card">
+      <div class="problema-icon">💸</div>
+      <div><h3>Perda de pacientes novos</h3><p>Quem manda mensagem e demora 2h para ser respondido já marcou na clínica do lado.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="servicos" id="servicos">
+  <div class="section-label">O que entregamos</div>
+  <h2 class="section-title">Tudo que sua recepção precisa, sem contratar mais ninguém</h2>
+  <div class="servicos-grid">
+    <div class="servico-card"><div class="servico-num">01</div><h3>Atendimento via WhatsApp</h3><p>Respondemos como se fôssemos a equipe da sua clínica — com o nome dela, na linguagem dela.</p></div>
+    <div class="servico-card"><div class="servico-num">02</div><h3>Agendamentos e cancelamentos</h3><p>Consultamos a agenda e marcamos, confirmamos ou remarcamos consultas em tempo real.</p></div>
+    <div class="servico-card"><div class="servico-num">03</div><h3>Confirmações ativas</h3><p>Enviamos mensagens 24h antes de cada consulta para reduzir faltas e agenda vazia.</p></div>
+    <div class="servico-card"><div class="servico-num">04</div><h3>Triagem de pacientes</h3><p>Coletamos nome, CPF, plano de saúde e motivo da consulta antes do paciente chegar.</p></div>
+    <div class="servico-card"><div class="servico-num">05</div><h3>Dúvidas frequentes</h3><p>Respondemos sobre convênios, valores, documentos, estacionamento e localização.</p></div>
+    <div class="servico-card"><div class="servico-num">06</div><h3>Relatório semanal</h3><p>Você recebe um resumo completo de atendimentos, volume e status dos agendamentos.</p></div>
+  </div>
+</section>
+
+<!-- PLANOS -->
+<section class="planos" id="planos">
+  <div class="section-label">Planos e preços</div>
+  <h2 class="section-title">Simples, justo e sem surpresas</h2>
+  <p class="section-sub">Escolha o plano ideal para o tamanho da sua clínica. Todos incluem 7 dias grátis.</p>
+  <div class="planos-grid">
+    <div class="plano">
+      <div class="plano-nome">Essencial</div>
+      <div class="plano-preco">R$497 <span>/mês</span></div>
+      <div class="plano-desc">Ideal para consultório solo ou pequena clínica</div>
+      <ul class="plano-lista">
+        <li>Atendimento seg–sex, 8h–18h</li>
+        <li>WhatsApp Business da clínica</li>
+        <li>Agendamentos e cancelamentos</li>
+        <li>Respostas a dúvidas frequentes</li>
+        <li>Triagem básica de pacientes</li>
+      </ul>
+      <button class="plano-btn plano-btn-outline" onclick="window.open('https://wa.me/5531288803500?text=Ol%C3%A1!+Tenho+interesse+no+plano+Essencial.+Pode+me+passar+mais+informa%C3%A7%C3%B5es%3F','_blank')">Quero este plano</button>
+    </div>
+    <div class="plano destaque">
+      <div class="plano-badge">MAIS ESCOLHIDO</div>
+      <div class="plano-nome">Profissional</div>
+      <div class="plano-preco">R$797 <span>/mês</span></div>
+      <div class="plano-desc">Perfeito para clínicas com 2 a 5 profissionais</div>
+      <ul class="plano-lista">
+        <li>Atendimento seg–sáb, 8h–20h</li>
+        <li>WhatsApp Business da clínica</li>
+        <li>Agendamentos e cancelamentos</li>
+        <li>Confirmações ativas 24h antes</li>
+        <li>Triagem completa de pacientes</li>
+        <li>Relatório semanal de atendimentos</li>
+      </ul>
+      <button class="plano-btn plano-btn-solid" onclick="window.open('https://wa.me/5531288803500?text=Ol%C3%A1!+Tenho+interesse+no+plano+Profissional.+Pode+me+passar+mais+informa%C3%A7%C3%B5es%3F','_blank')">Quero este plano</button>
+    </div>
+    <div class="plano">
+      <div class="plano-nome">Clínica</div>
+      <div class="plano-preco">R$1.197 <span>/mês</span></div>
+      <div class="plano-desc">Para clínicas maiores com alto volume de atendimentos</div>
+      <ul class="plano-lista">
+        <li>Atendimento seg–sáb, 8h–20h</li>
+        <li>Múltiplos canais (WhatsApp + chat)</li>
+        <li>Agendamentos em múltiplas agendas</li>
+        <li>Confirmações ativas + reagendamentos</li>
+        <li>Triagem completa + histórico</li>
+        <li>Relatório semanal detalhado</li>
+        <li>Reunião mensal de acompanhamento</li>
+      </ul>
+      <button class="plano-btn plano-btn-outline" onclick="window.open('https://wa.me/5531288803500?text=Ol%C3%A1!+Tenho+interesse+no+plano+Cl%C3%ADnica.+Pode+me+passar+mais+informa%C3%A7%C3%B5es%3F','_blank')">Quero este plano</button>
+    </div>
+  </div>
+  <p class="setup-note">🔧 Taxa de setup (implantação): R$400 — pagamento único. Inclui onboarding completo e roteiro personalizado.</p>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="como" id="como">
+  <div class="section-label">Como funciona</div>
+  <h2 class="section-title">Do contrato ao atendimento em menos de 48h</h2>
+  <div class="como-steps">
+    <div class="step"><div class="step-circle">1</div><h3>Reunião inicial</h3><p>Entendemos o perfil da sua clínica, especialidades e fluxo de atendimento atual.</p></div>
+    <div class="step"><div class="step-circle">2</div><h3>Roteiro personalizado</h3><p>Criamos um script de atendimento com a voz e identidade da sua clínica.</p></div>
+    <div class="step"><div class="step-circle">3</div><h3>Acesso e treinamento</h3><p>Recebemos acesso ao WhatsApp e à agenda. Tudo configurado em até 48h.</p></div>
+    <div class="step"><div class="step-circle">4</div><h3>Atendimento ativo</h3><p>Sua clínica começa a ser atendida. Você acompanha e nós reportamos semanalmente.</p></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div style="max-width:720px;margin:0 auto">
+    <div class="section-label">Dúvidas frequentes</div>
+    <h2 class="section-title">Tudo que você precisa saber antes de começar</h2>
+  </div>
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary>Meus pacientes vão saber que não é minha própria equipe?</summary>
+      <p>Não. Atendemos com o nome da sua clínica, seguindo o roteiro personalizado que criamos juntos. Para o paciente, a experiência é idêntica a falar com a sua própria recepcionista.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Como vocês acessam a minha agenda?</summary>
+      <p>Trabalhamos com o sistema que você já usa (Google Agenda, Doctoralia, iClinic, etc). Você nos dá um acesso exclusivo e podemos agendar, cancelar e remarcar em tempo real.</p>
+    </details>
+    <details class="faq-item">
+      <summary>E se o paciente perguntar algo que não sei responder?</summary>
+      <p>Qualquer assunto fora do nosso roteiro é encaminhado para você ou para a equipe da clínica — com o histórico da conversa completo, para não precisar explicar tudo de novo.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Posso cancelar quando quiser?</summary>
+      <p>Sim. Nossos planos são mensais, sem fidelidade. Você pode cancelar a qualquer momento com aviso prévio de 15 dias.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Os 7 dias grátis têm algum custo ou limite?</summary>
+      <p>Não. São 7 dias completos com todos os recursos do plano escolhido, sem cobrar nada. Se não ficar satisfeito, não paga nada.</p>
+    </details>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <h2>Pronto para transformar o atendimento da sua clínica?</h2>
+  <p>Comece com 7 dias grátis. Sem burocracia, sem robôs, sem decepção.</p>
+  <button class="btn-branco" onclick="window.open('https://wa.me/5531288803500?text=Ol%C3%A1!+Quero+come%C3%A7ar+os+7+dias+gr%C3%A1tis+do+Minha+Recepcionista','_blank')">Quero meus 7 dias grátis →</button>
+  <p class="cta-sub">Sem fidelidade · Cancele quando quiser · Atendimento 100% humano</p>
+  <div class="contato-box">
+    <span style="color:rgba(255,255,255,0.7);font-size:13px">📞 Prefere ligar?</span>
+    <div>
+      <span style="color:rgba(255,255,255,0.7);font-size:13px">WhatsApp / Telefone</span>
+      <strong>(31) 2888-0350</strong>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">minha<span>recepcionista</span></div>
+  <p>© 2025 Minha Recepcionista · minharecepcionista.com.br</p>
+  <nav>
+    <a href="#servicos">Serviços</a>
+    <a href="#planos">Planos</a>
+    <a href="#faq">Contato</a>
+  </nav>
+</footer>
+
+</body>
+</html>
