@@ -97,8 +97,49 @@ h1 em{font-style:italic;color:var(--verde)}
 .adicional-card p{font-size:13px;color:var(--cinza);line-height:1.6;margin-bottom:14px}
 .adicional-preco{font-size:14px;font-weight:700;color:var(--verde)}
 
+/* NOTAS FISCAIS MEI */
+.notas{padding:90px 8%;background:#fff}
+.notas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
+.notas-card{background:var(--areia);border:1px solid #e8e4dd;border-radius:20px;padding:32px;position:relative;transition:all 0.2s}
+.notas-card:hover{border-color:var(--verde-borda);box-shadow:0 8px 32px rgba(15,110,86,0.08)}
+.notas-card.destaque{border:2px solid var(--verde);background:#fff}
+.notas-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--verde);color:#fff;font-size:12px;font-weight:700;padding:5px 18px;border-radius:100px;white-space:nowrap;letter-spacing:0.5px}
+.notas-faixa{font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cinza);margin-bottom:12px}
+.notas-preco{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--preto);margin-bottom:4px}
+.notas-preco span{font-family:'DM Sans',sans-serif;font-size:16px;font-weight:400;color:var(--cinza)}
+.notas-desc{font-size:13px;color:var(--cinza);margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid #e8e4dd}
+.notas-lista{list-style:none;margin-bottom:28px}
+.notas-lista li{font-size:14px;padding:7px 0;border-bottom:1px solid #efece6;display:flex;gap:10px;align-items:flex-start;color:var(--cinza)}
+.notas-lista li::before{content:'✓';color:var(--verde);font-weight:700;flex-shrink:0;margin-top:1px}
+.notas-btn{display:block;width:100%;padding:14px;border-radius:100px;font-size:14px;font-weight:600;text-align:center;cursor:pointer;border:none;transition:all 0.2s}
+.notas-btn-outline{background:transparent;border:2px solid var(--verde);color:var(--verde)}
+.notas-btn-outline:hover{background:var(--verde-bg)}
+.notas-btn-solid{background:var(--verde);color:#fff}
+.notas-btn-solid:hover{background:var(--verde-claro)}
+
+/* FINANCEIRO */
+.financeiro{padding:90px 8%;background:var(--areia)}
+.financeiro-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:52px;max-width:820px}
+.fin-card{background:#fff;border:1px solid #e8e4dd;border-radius:20px;padding:32px;position:relative;transition:all 0.2s}
+.fin-card:hover{border-color:var(--verde-borda);box-shadow:0 8px 32px rgba(15,110,86,0.08)}
+.fin-card.destaque{border:2px solid var(--verde)}
+.fin-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--verde);color:#fff;font-size:12px;font-weight:700;padding:5px 18px;border-radius:100px;white-space:nowrap;letter-spacing:0.5px}
+.fin-nome{font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cinza);margin-bottom:12px}
+.fin-preco{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--preto);margin-bottom:4px}
+.fin-preco span{font-family:'DM Sans',sans-serif;font-size:16px;font-weight:400;color:var(--cinza)}
+.fin-desc{font-size:13px;color:var(--cinza);margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid #f0ede8}
+.fin-lista{list-style:none;margin-bottom:28px}
+.fin-lista li{font-size:14px;padding:7px 0;border-bottom:1px solid #f7f5f1;display:flex;gap:10px;align-items:flex-start;color:var(--cinza)}
+.fin-lista li::before{content:'✓';color:var(--verde);font-weight:700;flex-shrink:0;margin-top:1px}
+.fin-lista li.fin-extra::before{content:'★';color:var(--verde-claro)}
+.fin-btn{display:block;width:100%;padding:14px;border-radius:100px;font-size:14px;font-weight:600;text-align:center;cursor:pointer;border:none;transition:all 0.2s}
+.fin-btn-outline{background:transparent;border:2px solid var(--verde);color:var(--verde)}
+.fin-btn-outline:hover{background:var(--verde-bg)}
+.fin-btn-solid{background:var(--verde);color:#fff}
+.fin-btn-solid:hover{background:var(--verde-claro)}
+
 /* PLANOS */
-.planos{padding:90px 8%;background:#fff}
+.planos{padding:90px 8%;background:var(--areia)}
 .planos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
 .plano{background:#fff;border:1px solid #e8e4dd;border-radius:20px;padding:32px;position:relative}
 .plano.destaque{border:2px solid var(--verde)}
@@ -186,6 +227,8 @@ footer nav a:hover{color:#fff}
   .problemas-grid{grid-template-columns:1fr}
   .servicos-grid{grid-template-columns:1fr 1fr}
   .adicionais-grid{grid-template-columns:1fr 1fr}
+  .notas-grid{grid-template-columns:1fr}
+  .financeiro-grid{grid-template-columns:1fr}
   .planos-grid{grid-template-columns:1fr}
   .como-steps{grid-template-columns:1fr 1fr}
   .como-steps::before{display:none}
@@ -213,6 +256,8 @@ footer nav a:hover{color:#fff}
     <a href="#servicos">Serviços</a>
     <a href="#planos">Planos</a>
     <a href="#adicionais">Adicionais</a>
+    <a href="#notas">Notas Fiscais MEI</a>
+    <a href="#financeiro">Financeiro</a>
     <a href="#como">Como funciona</a>
     <a href="#faq">Dúvidas</a>
   </div>
@@ -342,6 +387,89 @@ footer nav a:hover{color:#fff}
       <h3>Reagendamento de Faltas</h3>
       <p>Contato ativo com pacientes que faltaram para tentar remarcar e evitar perda de receita.</p>
       <div class="adicional-preco">+ R$ 200,00/mês</div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTAS FISCAIS MEI -->
+<section class="notas" id="notas">
+  <div class="section-label">Novo serviço</div>
+  <h2 class="section-title">Emissão e orientação de notas fiscais para MEI</h2>
+  <p class="section-sub">Cuidamos da emissão das suas notas fiscais e tiramos suas dúvidas como MEI, para você não perder tempo com burocracia. Escolha a faixa de acordo com o volume mensal de notas.</p>
+  <div class="notas-grid">
+    <div class="notas-card">
+      <div class="notas-faixa">Até 20 notas/mês</div>
+      <div class="notas-preco">R$ 99,90 <span>/mês</span></div>
+      <div class="notas-desc">Ideal para quem está começando ou emite poucas notas por mês</div>
+      <ul class="notas-lista">
+        <li>Emissão de até 20 notas fiscais/mês</li>
+        <li>Orientação sobre enquadramento MEI</li>
+        <li>Suporte via WhatsApp</li>
+      </ul>
+      <button class="notas-btn notas-btn-outline" onclick="window.open('https://wa.me/553128880350?text=Ol%C3%A1!+Quero+contratar+a+emiss%C3%A3o+de+notas+fiscais+MEI+-+at%C3%A9+20+notas','_blank')">Contratar</button>
+    </div>
+    <div class="notas-card destaque">
+      <div class="notas-badge">MAIS ESCOLHIDO</div>
+      <div class="notas-faixa">Até 50 notas/mês</div>
+      <div class="notas-preco">R$ 199,90 <span>/mês</span></div>
+      <div class="notas-desc">Para MEIs com volume médio de emissão mensal</div>
+      <ul class="notas-lista">
+        <li>Emissão de até 50 notas fiscais/mês</li>
+        <li>Orientação sobre enquadramento MEI</li>
+        <li>Suporte via WhatsApp prioritário</li>
+        <li>Alerta de limite de faturamento MEI</li>
+      </ul>
+      <button class="notas-btn notas-btn-solid" onclick="window.open('https://wa.me/553128880350?text=Ol%C3%A1!+Quero+contratar+a+emiss%C3%A3o+de+notas+fiscais+MEI+-+at%C3%A9+50+notas','_blank')">Contratar</button>
+    </div>
+    <div class="notas-card">
+      <div class="notas-faixa">Até 100 notas/mês</div>
+      <div class="notas-preco">R$ 299,90 <span>/mês</span></div>
+      <div class="notas-desc">Para MEIs com alto volume de notas emitidas por mês</div>
+      <ul class="notas-lista">
+        <li>Emissão de até 100 notas fiscais/mês</li>
+        <li>Orientação sobre enquadramento MEI</li>
+        <li>Suporte via WhatsApp prioritário</li>
+        <li>Alerta de limite de faturamento MEI</li>
+        <li>Relatório mensal de notas emitidas</li>
+      </ul>
+      <button class="notas-btn notas-btn-outline" onclick="window.open('https://wa.me/553128880350?text=Ol%C3%A1!+Quero+contratar+a+emiss%C3%A3o+de+notas+fiscais+MEI+-+at%C3%A9+100+notas','_blank')">Contratar</button>
+    </div>
+  </div>
+</section>
+
+<!-- FINANCEIRO -->
+<section class="financeiro" id="financeiro">
+  <div class="section-label">Novo serviço</div>
+  <h2 class="section-title">Serviços financeiros para MEI e autônomos</h2>
+  <p class="section-sub">Para MEI e autônomos que estão começando a organizar as finanças. Escolha o pacote ideal para o nível de organização que você precisa.</p>
+  <div class="financeiro-grid">
+    <div class="fin-card">
+      <div class="fin-nome">Pacote Essencial</div>
+      <div class="fin-preco">R$ 197 <span>/mês</span></div>
+      <div class="fin-desc">O básico para manter suas obrigações fiscais em dia</div>
+      <ul class="fin-lista">
+        <li>Emissão da guia DAS (MEI) mensal</li>
+        <li>Emissão de Notas Fiscais</li>
+        <li>Alerta de vencimentos de obrigações fiscais</li>
+        <li>Suporte via WhatsApp em horário comercial</li>
+      </ul>
+      <button class="fin-btn fin-btn-outline" onclick="window.open('https://wa.me/553128880350?text=Ol%C3%A1!+Quero+contratar+o+Pacote+Essencial+de+Servi%C3%A7os+Financeiros','_blank')">Contratar</button>
+    </div>
+    <div class="fin-card destaque">
+      <div class="fin-badge">MAIS COMPLETO</div>
+      <div class="fin-nome">Pacote Top</div>
+      <div class="fin-preco">R$ 297 <span>/mês</span></div>
+      <div class="fin-desc">Tudo do Essencial, com organização financeira completa</div>
+      <ul class="fin-lista">
+        <li>Emissão da guia DAS (MEI) mensal</li>
+        <li>Emissão de Notas Fiscais</li>
+        <li>Alerta de vencimentos de obrigações fiscais</li>
+        <li>Suporte via WhatsApp em horário comercial</li>
+        <li class="fin-extra">Declaração Anual MEI</li>
+        <li class="fin-extra">Organização de notas fiscais emitidas e recebidas</li>
+        <li class="fin-extra">Controle simples de entradas e saídas</li>
+      </ul>
+      <button class="fin-btn fin-btn-solid" onclick="window.open('https://wa.me/553128880350?text=Ol%C3%A1!+Quero+contratar+o+Pacote+Top+de+Servi%C3%A7os+Financeiros','_blank')">Contratar</button>
     </div>
   </div>
 </section>
@@ -488,6 +616,22 @@ footer nav a:hover{color:#fff}
       <summary>Como funciona a taxa de implantação?</summary>
       <p>A taxa de R$ 400,00 é paga uma única vez na ativação do serviço. Ela cobre o onboarding completo, criação do roteiro personalizado e configuração de todos os acessos. Não é cobrada durante o período de teste.</p>
     </details>
+    <details class="faq-item">
+      <summary>Como funciona o serviço de emissão de notas fiscais para MEI?</summary>
+      <p>Você escolhe a faixa de acordo com o volume mensal de notas (até 20, 50 ou 100 notas). Emitimos as notas fiscais para você e orientamos sobre enquadramento e limites do MEI, sem que você precise entender de burocracia fiscal.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Posso contratar o serviço de notas fiscais separadamente dos planos de atendimento?</summary>
+      <p>Sim, o serviço de emissão e orientação de notas fiscais para MEI pode ser contratado de forma independente, sem necessidade de assinar um plano de atendimento via WhatsApp.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Qual a diferença entre o Pacote Essencial e o Pacote Top de serviços financeiros?</summary>
+      <p>O Pacote Essencial cobre a emissão da guia DAS, emissão de notas fiscais, alertas de vencimento e suporte via WhatsApp. O Pacote Top inclui tudo isso e acrescenta a Declaração Anual MEI, organização das notas emitidas e recebidas e um controle simples de entradas e saídas.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Os serviços financeiros também podem ser contratados separadamente?</summary>
+      <p>Sim, os pacotes de serviços financeiros para MEI e autônomos podem ser contratados de forma independente dos demais serviços do site.</p>
+    </details>
   </div>
 </section>
 
@@ -520,6 +664,8 @@ footer nav a:hover{color:#fff}
   <nav>
     <a href="#servicos">Serviços</a>
     <a href="#planos">Planos</a>
+    <a href="#notas">Notas Fiscais MEI</a>
+    <a href="#financeiro">Financeiro</a>
     <a href="#faq">Dúvidas</a>
   </nav>
 </footer>
