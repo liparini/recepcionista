@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Minha Recepcionista – Atendimento, Notas Fiscais e Financeiro para Clínicas e MEI</title>
+<title>Minha Recepcionista – Notas Fiscais e Financeiro para MEI</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -66,7 +66,7 @@ h1 em{font-style:italic;color:var(--verde)}
 
 /* PILARES */
 .pilares{padding:80px 8%;background:#fff}
-.pilares-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
+.pilares-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:44px;max-width:760px}
 .pilar-card{border:1px solid #e8e4dd;border-radius:20px;padding:30px;cursor:pointer;transition:all 0.2s;text-decoration:none;color:inherit;display:block}
 .pilar-card:hover{border-color:var(--verde-borda);background:var(--verde-bg);transform:translateY(-2px)}
 .pilar-icon{width:52px;height:52px;border-radius:14px;background:var(--verde-bg);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:18px}
@@ -78,34 +78,6 @@ h1 em{font-style:italic;color:var(--verde)}
 .section-label{font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--verde);margin-bottom:16px}
 .section-title{font-family:'Playfair Display',serif;font-size:38px;font-weight:700;line-height:1.15;letter-spacing:-0.5px;max-width:560px;margin-bottom:20px}
 .section-sub{font-size:16px;color:var(--cinza);line-height:1.7;max-width:520px;margin-bottom:56px}
-
-/* PROBLEMAS */
-.problemas{padding:90px 8%;background:var(--areia)}
-.problemas-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.problema-card{background:#fff;border:1px solid #e8e4dd;border-radius:16px;padding:24px;display:flex;gap:16px;align-items:flex-start;transition:box-shadow 0.2s}
-.problema-card:hover{box-shadow:0 8px 32px rgba(0,0,0,0.06)}
-.problema-icon{width:44px;height:44px;border-radius:12px;background:#FEF3F2;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.problema-card h3{font-size:15px;font-weight:600;margin-bottom:6px}
-.problema-card p{font-size:14px;color:var(--cinza);line-height:1.6}
-
-/* SERVIÇOS */
-.servicos{padding:90px 8%;background:#fff}
-.servicos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
-.servico-card{border:1px solid #e8e4dd;border-radius:20px;padding:28px;transition:all 0.2s;cursor:default}
-.servico-card:hover{border-color:var(--verde-borda);background:var(--verde-bg)}
-.servico-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--verde-borda);margin-bottom:16px;line-height:1}
-.servico-card h3{font-size:16px;font-weight:600;margin-bottom:10px}
-.servico-card p{font-size:14px;color:var(--cinza);line-height:1.7}
-
-/* ADICIONAIS */
-.adicionais{padding:90px 8%;background:var(--areia)}
-.adicionais-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
-.adicional-card{background:#fff;border:1px solid #e8e4dd;border-radius:16px;padding:24px;transition:all 0.2s}
-.adicional-card:hover{border-color:var(--verde-borda);box-shadow:0 8px 32px rgba(15,110,86,0.08)}
-.adicional-icon{font-size:28px;margin-bottom:12px;display:block}
-.adicional-card h3{font-size:15px;font-weight:600;margin-bottom:8px}
-.adicional-card p{font-size:13px;color:var(--cinza);line-height:1.6;margin-bottom:14px}
-.adicional-preco{font-size:14px;font-weight:700;color:var(--verde)}
 
 /* NOTAS FISCAIS MEI */
 .notas{padding:90px 8%;background:#fff}
@@ -240,10 +212,7 @@ footer nav a:hover{color:#fff}
   .hero-visual{display:none}
   h1{font-size:38px}
   .stats{grid-template-columns:1fr;gap:20px;text-align:left}
-  .problemas-grid{grid-template-columns:1fr}
   .pilares-grid{grid-template-columns:1fr}
-  .servicos-grid{grid-template-columns:1fr 1fr}
-  .adicionais-grid{grid-template-columns:1fr 1fr}
   .notas-grid{grid-template-columns:1fr}
   .financeiro-grid{grid-template-columns:1fr}
   .planos-grid{grid-template-columns:1fr}
@@ -255,8 +224,6 @@ footer nav a:hover{color:#fff}
   .contrato-cta-inner{flex-direction:column}
 }
 @media(max-width:560px){
-  .servicos-grid{grid-template-columns:1fr}
-  .adicionais-grid{grid-template-columns:1fr}
   .como-steps{grid-template-columns:1fr}
   footer{flex-direction:column;text-align:center}
   footer nav{margin-top:8px}
@@ -270,9 +237,6 @@ footer nav a:hover{color:#fff}
 <nav>
   <div class="logo">minha<span>recepcionista</span></div>
   <div class="nav-links">
-    <a href="#servicos">Serviços</a>
-    <a href="#adicionais">Adicionais</a>
-    <a href="#planos" onclick="showPlanTab('atendimento')">Atendimento</a>
     <a href="#planos" onclick="showPlanTab('notas')">Notas Fiscais MEI</a>
     <a href="#planos" onclick="showPlanTab('financeiro')">Financeiro</a>
     <a href="#faq">Dúvidas</a>
@@ -283,9 +247,9 @@ footer nav a:hover{color:#fff}
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <div class="hero-badge">🟢 Atendimento, notas fiscais e financeiro — 100% humano</div>
-    <h1>Atendimento, notas fiscais e finanças do seu negócio com <em>profissionalismo</em></h1>
-    <p>Cuidamos do atendimento via WhatsApp do seu negócio, emitimos suas notas fiscais e organizamos as finanças do seu MEI — como se fôssemos a sua equipe, de verdade, sem robôs.</p>
+    <div class="hero-badge">🟢 Notas fiscais e financeiro para MEI — 100% humano</div>
+    <h1>Notas fiscais e finanças do seu negócio com <em>profissionalismo</em></h1>
+    <p>Emitimos suas notas fiscais mensalmente e organizamos as finanças do seu MEI — como se fôssemos a sua equipe, de verdade, sem robôs.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="document.getElementById('planos').scrollIntoView({behavior:'smooth'})">Ver planos e preços →</button>
     </div>
@@ -319,15 +283,9 @@ footer nav a:hover{color:#fff}
 <!-- PILARES -->
 <section class="pilares" id="pilares">
   <div class="section-label">Nossos serviços</div>
-  <h2 class="section-title">Muito além do atendimento no WhatsApp</h2>
-  <p class="section-sub">Cuidamos do relacionamento com seus pacientes e clientes, das suas notas fiscais e das finanças do seu MEI — tudo em um só lugar.</p>
+  <h2 class="section-title">Notas fiscais e financeiro para o seu MEI</h2>
+  <p class="section-sub">Cuidamos das suas notas fiscais e das finanças do seu MEI — tudo em um só lugar, sem burocracia.</p>
   <div class="pilares-grid">
-    <a href="#servicos" class="pilar-card">
-      <div class="pilar-icon">💬</div>
-      <h3>Atendimento via WhatsApp</h3>
-      <p>Agendamentos, confirmações, triagem e dúvidas frequentes respondidos com humanização, no nome do seu negócio.</p>
-      <span class="pilar-link">Ver planos de atendimento →</span>
-    </a>
     <a href="#planos" class="pilar-card" onclick="showPlanTab('notas')">
       <div class="pilar-icon">🧾</div>
       <h3>Notas Fiscais para MEI</h3>
@@ -337,92 +295,9 @@ footer nav a:hover{color:#fff}
     <a href="#planos" class="pilar-card" onclick="showPlanTab('financeiro')">
       <div class="pilar-icon">💰</div>
       <h3>Serviços Financeiros</h3>
-      <p>Guia DAS, declaração anual, organização de notas e controle simples de entradas e saídas para MEI e autônomos.</p>
+      <p>Guia DAS, declaração anual, organização de notas e controle de contas a pagar e receber para MEI e autônomos.</p>
       <span class="pilar-link">Ver pacotes financeiros →</span>
     </a>
-  </div>
-</section>
-
-<!-- PROBLEMAS -->
-<section class="problemas" id="problemas">
-  <div class="section-label">Reconhece esses problemas?</div>
-  <h2 class="section-title">O que seu negócio perde hoje sem atendimento eficiente</h2>
-  <p class="section-sub">Clientes que não conseguem ser atendidos a tempo vão para a concorrência. Veja as dores que resolvemos.</p>
-  <div class="problemas-grid">
-    <div class="problema-card">
-      <div class="problema-icon">😤</div>
-      <div><h3>Equipe sobrecarregada</h3><p>Ela atende presencialmente e ainda responde centenas de mensagens. Algo sempre escapa.</p></div>
-    </div>
-    <div class="problema-card">
-      <div class="problema-icon">🌙</div>
-      <div><h3>Clientes fora do horário</h3><p>Mensagens chegam à noite e no fim de semana, mas ficam sem resposta até segunda-feira.</p></div>
-    </div>
-    <div class="problema-card">
-      <div class="problema-icon">📉</div>
-      <div><h3>Alto índice de faltas</h3><p>Sem confirmação ativa no dia anterior, 1 em cada 5 clientes simplesmente não aparece.</p></div>
-    </div>
-    <div class="problema-card">
-      <div class="problema-icon">💸</div>
-      <div><h3>Perda de clientes novos</h3><p>Quem manda mensagem e demora 2h para ser respondido já marcou com o concorrente.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVIÇOS -->
-<section class="servicos" id="servicos">
-  <div class="section-label">O que entregamos</div>
-  <h2 class="section-title">Tudo que sua recepção precisa, sem contratar mais ninguém</h2>
-  <div class="servicos-grid">
-    <div class="servico-card"><div class="servico-num">01</div><h3>Atendimento via WhatsApp</h3><p>Respondemos como se fôssemos a equipe do seu negócio — com o nome dele, na linguagem dele.</p></div>
-    <div class="servico-card"><div class="servico-num">02</div><h3>Agendamentos e cancelamentos</h3><p>Consultamos a agenda e marcamos, confirmamos ou remarcamos consultas em tempo real.</p></div>
-    <div class="servico-card"><div class="servico-num">03</div><h3>Confirmações ativas</h3><p>Entramos em contato 24h antes de cada consulta para reduzir faltas e agenda vazia.</p></div>
-    <div class="servico-card"><div class="servico-num">04</div><h3>Triagem de pacientes</h3><p>Coletamos nome, CPF, plano de saúde e motivo da consulta antes do paciente chegar.</p></div>
-    <div class="servico-card"><div class="servico-num">05</div><h3>Dúvidas frequentes</h3><p>Respondemos sobre convênios, valores, documentos, estacionamento e localização.</p></div>
-  </div>
-</section>
-
-<!-- ADICIONAIS -->
-<section class="adicionais" id="adicionais">
-  <div class="section-label">Serviços adicionais</div>
-  <h2 class="section-title">Expanda o atendimento conforme sua necessidade</h2>
-  <p class="section-sub">Selecione adicionais no momento da contratação e pague apenas pelo que precisar.</p>
-  <div class="adicionais-grid">
-    <div class="adicional-card">
-      <span class="adicional-icon">📅</span>
-      <h3>Atendimento aos Sábados</h3>
-      <p>Cobertura completa aos sábados das 8h às 18h, com o mesmo padrão dos dias úteis.</p>
-      <div class="adicional-preco">+ R$ 400,00/mês</div>
-    </div>
-    <div class="adicional-card">
-      <span class="adicional-icon">✅</span>
-      <h3>Confirmação 24h Antes</h3>
-      <p>Entramos em contato com cada paciente 24h antes da consulta, reduzindo faltas e agenda vazia.</p>
-      <div class="adicional-preco">+ R$ 300,00/mês</div>
-    </div>
-    <div class="adicional-card">
-      <span class="adicional-icon">📣</span>
-      <h3>Campanhas de Retorno</h3>
-      <p>Contato mensal com pacientes inativos, aniversariantes e lembretes de retorno periódico.</p>
-      <div class="adicional-preco">+ R$ 200,00/mês</div>
-    </div>
-    <div class="adicional-card">
-      <span class="adicional-icon">🌙</span>
-      <h3>Atendimento Noturno</h3>
-      <p>Extensão do atendimento de seg a sex das 18h às 21h para capturar pacientes fora do horário comercial.</p>
-      <div class="adicional-preco">+ R$ 350,00/mês</div>
-    </div>
-    <div class="adicional-card">
-      <span class="adicional-icon">⭐</span>
-      <h3>Pesquisa de Satisfação</h3>
-      <p>Entramos em contato com o paciente após a consulta pedindo avaliação no Google, aumentando sua reputação online.</p>
-      <div class="adicional-preco">+ R$ 150,00/mês</div>
-    </div>
-    <div class="adicional-card">
-      <span class="adicional-icon">🔄</span>
-      <h3>Reagendamento de Faltas</h3>
-      <p>Contato ativo com pacientes que faltaram para tentar remarcar e evitar perda de receita.</p>
-      <div class="adicional-preco">+ R$ 200,00/mês</div>
-    </div>
   </div>
 </section>
 
@@ -435,7 +310,6 @@ footer nav a:hover{color:#fff}
   <div class="planos-tabs">
     <button class="planos-tab active" id="tabBtnNotas" onclick="showPlanTab('notas')">🧾 Notas Fiscais MEI</button>
     <button class="planos-tab" id="tabBtnFinanceiro" onclick="showPlanTab('financeiro')">💰 Financeiro</button>
-    <button class="planos-tab" id="tabBtnAtendimento" onclick="showPlanTab('atendimento')">💬 Atendimento</button>
   </div>
 
   <!-- ABA: NOTAS FISCAIS MEI -->
@@ -444,7 +318,7 @@ footer nav a:hover{color:#fff}
     <div class="notas-grid">
       <div class="notas-card">
         <div class="notas-faixa">Até 20 notas/mês</div>
-        <div class="notas-preco">R$ 99,90 <span>/mês</span></div>
+        <div class="notas-preco">R$ 299,90 <span>/mês</span></div>
         <div class="notas-desc">Ideal para quem está começando ou emite poucas notas por mês</div>
         <ul class="notas-lista">
           <li>Emissão de até 20 notas fiscais/mês</li>
@@ -456,7 +330,7 @@ footer nav a:hover{color:#fff}
       <div class="notas-card destaque">
         <div class="notas-badge">MAIS ESCOLHIDO</div>
         <div class="notas-faixa">Até 50 notas/mês</div>
-        <div class="notas-preco">R$ 199,90 <span>/mês</span></div>
+        <div class="notas-preco">R$ 599,90 <span>/mês</span></div>
         <div class="notas-desc">Para MEIs com volume médio de emissão mensal</div>
         <ul class="notas-lista">
           <li>Emissão de até 50 notas fiscais/mês</li>
@@ -468,7 +342,7 @@ footer nav a:hover{color:#fff}
       </div>
       <div class="notas-card">
         <div class="notas-faixa">Até 100 notas/mês</div>
-        <div class="notas-preco">R$ 299,90 <span>/mês</span></div>
+        <div class="notas-preco">R$ 899,90 <span>/mês</span></div>
         <div class="notas-desc">Para MEIs com alto volume de notas emitidas por mês</div>
         <ul class="notas-lista">
           <li>Emissão de até 100 notas fiscais/mês</li>
@@ -484,91 +358,35 @@ footer nav a:hover{color:#fff}
 
   <!-- ABA: FINANCEIRO -->
   <div class="planos-panel" id="tabFinanceiro">
-    <p class="section-sub" style="margin-bottom:32px">Para MEI e autônomos que estão começando a organizar as finanças. Escolha o pacote ideal para o nível de organização que você precisa.</p>
+    <p class="section-sub" style="margin-bottom:32px">Para MEI e autônomos que estão começando a organizar as finanças. Escolha o pacote de acordo com a quantidade de horas de trabalho dedicadas por semana ao seu financeiro.</p>
     <div class="financeiro-grid">
       <div class="fin-card">
-        <div class="fin-nome">Pacote Essencial</div>
-        <div class="fin-preco">R$ 197 <span>/mês</span></div>
+        <div class="fin-nome">Até 2h de trabalho/semana</div>
+        <div class="fin-preco">R$ 799,90 <span>/mês</span></div>
         <div class="fin-desc">O básico para manter suas obrigações fiscais em dia</div>
         <ul class="fin-lista">
           <li>Emissão da guia DAS (MEI) mensal</li>
           <li>Emissão de Notas Fiscais</li>
-          <li>Alerta de vencimentos de obrigações fiscais</li>
+          <li>Controle de contas a pagar e receber</li>
           <li>Suporte via WhatsApp em horário comercial</li>
         </ul>
-        <button class="fin-btn fin-btn-outline" onclick="window.open('https://wa.me/553128880350?text=Ol%C3%A1!+Quero+contratar+o+Pacote+Essencial+de+Servi%C3%A7os+Financeiros','_blank')">Contratar</button>
+        <button class="fin-btn fin-btn-outline" onclick="window.open('https://wa.me/553128880350?text=Ol%C3%A1!+Quero+contratar+o+pacote+financeiro+at%C3%A9+2h+de+trabalho+por+semana','_blank')">Contratar</button>
       </div>
       <div class="fin-card destaque">
         <div class="fin-badge">MAIS COMPLETO</div>
-        <div class="fin-nome">Pacote Top</div>
-        <div class="fin-preco">R$ 297 <span>/mês</span></div>
-        <div class="fin-desc">Tudo do Essencial, com organização financeira completa</div>
+        <div class="fin-nome">Até 4h de trabalho/semana</div>
+        <div class="fin-preco">R$ 1.299,90 <span>/mês</span></div>
+        <div class="fin-desc">Tudo do plano de 2h, com organização financeira completa</div>
         <ul class="fin-lista">
           <li>Emissão da guia DAS (MEI) mensal</li>
           <li>Emissão de Notas Fiscais</li>
-          <li>Alerta de vencimentos de obrigações fiscais</li>
+          <li>Controle de contas a pagar e receber</li>
           <li>Suporte via WhatsApp em horário comercial</li>
           <li class="fin-extra">Declaração Anual MEI</li>
           <li class="fin-extra">Organização de notas fiscais emitidas e recebidas</li>
           <li class="fin-extra">Controle simples de entradas e saídas</li>
         </ul>
-        <button class="fin-btn fin-btn-solid" onclick="window.open('https://wa.me/553128880350?text=Ol%C3%A1!+Quero+contratar+o+Pacote+Top+de+Servi%C3%A7os+Financeiros','_blank')">Contratar</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ABA: ATENDIMENTO -->
-  <div class="planos-panel" id="tabAtendimento">
-    <div class="planos-grid">
-      <div class="plano">
-        <div class="plano-nome">Essencial</div>
-        <div class="plano-preco">R$1.397 <span>/mês</span></div>
-        <div class="plano-desc">Ideal para autônomo ou pequeno negócio — até 1 profissional</div>
-        <ul class="plano-lista">
-          <li>Atendimento seg–sex, 8h–18h</li>
-          <li>WhatsApp Business do seu negócio</li>
-          <li>Agendamentos e cancelamentos</li>
-          <li>Respostas a dúvidas frequentes</li>
-          <li>Triagem básica de clientes</li>
-        </ul>
-        <button class="plano-btn plano-btn-outline" onclick="window.open('https://wa.me/553128880350?text=Ol%C3%A1!+Quero+contratar+o+plano+Essencial+de+Atendimento','_blank')">Contratar</button>
-      </div>
-      <div class="plano destaque">
-        <div class="plano-badge">MAIS ESCOLHIDO</div>
-        <div class="plano-nome">Profissional</div>
-        <div class="plano-preco">R$1.797 <span>/mês</span></div>
-        <div class="plano-desc">Perfeito para negócios com até 2 profissionais</div>
-        <ul class="plano-lista">
-          <li>Atendimento seg–sex, 8h–18h</li>
-          <li>WhatsApp Business do seu negócio</li>
-          <li>Agendamentos e cancelamentos</li>
-          <li>Confirmações ativas 24h antes</li>
-          <li>Triagem completa de clientes</li>
-        </ul>
-        <button class="plano-btn plano-btn-solid" onclick="window.open('https://wa.me/553128880350?text=Ol%C3%A1!+Quero+contratar+o+plano+Profissional+de+Atendimento','_blank')">Contratar</button>
-      </div>
-      <div class="plano">
-        <div class="plano-nome">Clínica</div>
-        <div class="plano-preco">R$1.997 <span>/mês</span></div>
-        <div class="plano-desc">Para negócios com até 3 profissionais — profissionais adicionais: <strong>+ R$200/mês cada</strong></div>
-        <ul class="plano-lista">
-          <li>Atendimento seg–sex, 8h–18h</li>
-          <li>WhatsApp Business do seu negócio</li>
-          <li>Agendamentos e cancelamentos</li>
-          <li>Confirmações ativas 24h antes</li>
-          <li>Triagem completa de clientes</li>
-          <li>Reunião mensal de acompanhamento</li>
-        </ul>
-        <button class="plano-btn plano-btn-outline" onclick="window.open('https://wa.me/553128880350?text=Ol%C3%A1!+Quero+contratar+o+plano+Cl%C3%ADnica+de+Atendimento','_blank')">Contratar</button>
-      </div>
-    </div>
-
-    <!-- SETUP BOX -->
-    <div class="setup-box">
-      <div class="setup-box-icon">🔧</div>
-      <div>
-        <h4>Taxa de implantação (setup): <strong>R$ 400,00</strong> — pagamento único</h4>
-        <p>Cobrada uma única vez na ativação do serviço. Inclui onboarding completo, configuração do roteiro personalizado e integração com a agenda do seu negócio. </p>
+        <button class="fin-btn fin-btn-solid" onclick="window.open('https://wa.me/553128880350?text=Ol%C3%A1!+Quero+contratar+o+pacote+financeiro+at%C3%A9+4h+de+trabalho+por+semana','_blank')">Contratar</button>
       </div>
     </div>
   </div>
@@ -613,12 +431,12 @@ footer nav a:hover{color:#fff}
 <!-- COMO FUNCIONA -->
 <section class="como" id="como">
   <div class="section-label">Como funciona</div>
-  <h2 class="section-title">Do contrato ao atendimento em menos de 48h</h2>
+  <h2 class="section-title">Do contrato ao início do serviço em menos de 48h</h2>
   <div class="como-steps">
-    <div class="step"><div class="step-circle">1</div><h3>Reunião inicial</h3><p>Entendemos o perfil da sua clínica, especialidades e fluxo de atendimento atual.</p></div>
-    <div class="step"><div class="step-circle">2</div><h3>Roteiro personalizado</h3><p>Criamos um script de atendimento com a voz e identidade da sua clínica.</p></div>
-    <div class="step"><div class="step-circle">3</div><h3>Acesso e treinamento</h3><p>Recebemos acesso ao WhatsApp e à agenda. Tudo configurado em até 48h.</p></div>
-    <div class="step"><div class="step-circle">4</div><h3>Atendimento ativo</h3><p>Sua clínica começa a ser atendida. Você acompanha e nós reportamos semanalmente.</p></div>
+    <div class="step"><div class="step-circle">1</div><h3>Reunião inicial</h3><p>Entendemos o perfil do seu MEI, volume de notas e necessidades financeiras.</p></div>
+    <div class="step"><div class="step-circle">2</div><h3>Coleta de informações</h3><p>Reunimos os dados necessários para emissão de notas e organização financeira.</p></div>
+    <div class="step"><div class="step-circle">3</div><h3>Ativação do serviço</h3><p>Tudo configurado em até 48h e já começamos a emitir suas notas fiscais.</p></div>
+    <div class="step"><div class="step-circle">4</div><h3>Acompanhamento mensal</h3><p>Você recebe suas notas e relatórios financeiros, com suporte via WhatsApp sempre que precisar.</p></div>
   </div>
 </section>
 
@@ -630,44 +448,24 @@ footer nav a:hover{color:#fff}
   </div>
   <div class="faq-list">
     <details class="faq-item">
-      <summary>Meus pacientes vão saber que não é minha própria equipe?</summary>
-      <p>Não. Atendemos com o nome da sua clínica, seguindo o roteiro personalizado que criamos juntos. Para o paciente, a experiência é idêntica a falar com a sua própria recepcionista.</p>
-    </details>
-    <details class="faq-item">
-      <summary>Como vocês acessam a minha agenda?</summary>
-      <p>Trabalhamos com o sistema que você já usa (Google Agenda, Doctoralia, iClinic, etc). Você nos dá um acesso exclusivo e podemos agendar, cancelar e remarcar em tempo real.</p>
-    </details>
-    <details class="faq-item">
-      <summary>E se o paciente perguntar algo que não sei responder?</summary>
-      <p>Qualquer assunto fora do nosso roteiro é encaminhado para você ou para a equipe da clínica — com o histórico da conversa completo, para não precisar explicar tudo de novo.</p>
-    </details>
-    <details class="faq-item">
       <summary>Posso cancelar quando quiser?</summary>
       <p>Sim. Planos mensais sem fidelidade. Cancele a qualquer momento com aviso prévio de 15 dias, sem multa rescisória.</p>
-    </details>
-    <details class="faq-item">
-      <summary>Como funciona o início do serviço?</summary>
-      <p>Após assinar o contrato digital, iniciamos o onboarding em até 48h. A taxa de implantação de R$ 400,00 é cobrada uma única vez na ativação, e o primeiro mês é cobrado no início do ciclo.</p>
     </details>
     <details class="faq-item">
       <summary>Os valores podem ser reajustados?</summary>
       <p>Sim, após 12 meses de contrato ativo pode haver reajuste pelo IPCA acumulado dos últimos 12 meses. Você será avisado com 30 dias de antecedência e pode cancelar sem multa caso não concorde.</p>
     </details>
     <details class="faq-item">
-      <summary>Como funciona a taxa de implantação?</summary>
-      <p>A taxa de R$ 400,00 é paga uma única vez na ativação do serviço. Ela cobre o onboarding completo, criação do roteiro personalizado e configuração de todos os acessos. Não é cobrada durante o período de teste.</p>
-    </details>
-    <details class="faq-item">
       <summary>Como funciona o serviço de emissão de notas fiscais para MEI?</summary>
       <p>Você escolhe a faixa de acordo com o volume mensal de notas (até 20, 50 ou 100 notas). Emitimos as notas fiscais para você e orientamos sobre enquadramento e limites do MEI, sem que você precise entender de burocracia fiscal.</p>
     </details>
     <details class="faq-item">
-      <summary>Posso contratar o serviço de notas fiscais separadamente dos planos de atendimento?</summary>
-      <p>Sim, o serviço de emissão e orientação de notas fiscais para MEI pode ser contratado de forma independente, sem necessidade de assinar um plano de atendimento via WhatsApp.</p>
+      <summary>Posso contratar o serviço de notas fiscais separadamente do financeiro?</summary>
+      <p>Sim, o serviço de emissão e orientação de notas fiscais para MEI pode ser contratado de forma independente, sem necessidade de assinar o pacote financeiro.</p>
     </details>
     <details class="faq-item">
-      <summary>Qual a diferença entre o Pacote Essencial e o Pacote Top de serviços financeiros?</summary>
-      <p>O Pacote Essencial cobre a emissão da guia DAS, emissão de notas fiscais, alertas de vencimento e suporte via WhatsApp. O Pacote Top inclui tudo isso e acrescenta a Declaração Anual MEI, organização das notas emitidas e recebidas e um controle simples de entradas e saídas.</p>
+      <summary>Qual a diferença entre o pacote de até 2h e o de até 4h por semana de serviços financeiros?</summary>
+      <p>O pacote de até 2h por semana cobre a emissão da guia DAS, emissão de notas fiscais, controle de contas a pagar e receber e suporte via WhatsApp. O pacote de até 4h por semana inclui tudo isso e acrescenta a Declaração Anual MEI, organização das notas emitidas e recebidas e um controle simples de entradas e saídas.</p>
     </details>
     <details class="faq-item">
       <summary>Os serviços financeiros também podem ser contratados separadamente?</summary>
@@ -678,8 +476,8 @@ footer nav a:hover{color:#fff}
 
 <!-- CTA FINAL -->
 <section class="cta-final">
-  <h2>Pronto para organizar o atendimento e as finanças do seu negócio?</h2>
-  <p>Atendimento humanizado, notas fiscais e financeiro para MEI. Sem burocracia, sem robôs.</p>
+  <h2>Pronto para organizar as notas fiscais e as finanças do seu negócio?</h2>
+  <p>Notas fiscais e financeiro para MEI, com atendimento 100% humano. Sem burocracia, sem robôs.</p>
   <button class="btn-branco" onclick="window.open('https://wa.me/553128880350?text=Ol%C3%A1!+Gostaria+de+contratar+o+Minha+Recepcionista','_blank')">Contratar agora →</button>
   <p class="cta-sub">Sem fidelidade · Cancele com 15 dias de aviso · Atendimento 100% humano</p>
 </section>
@@ -703,8 +501,6 @@ footer nav a:hover{color:#fff}
   <div class="footer-logo">minha<span>recepcionista</span></div>
   <p>© 2025 Minha Recepcionista · minharecepcionista.com.br · CNPJ 61.934.682/0001-02</p>
   <nav>
-    <a href="#servicos">Serviços</a>
-    <a href="#planos" onclick="showPlanTab('atendimento')">Planos</a>
     <a href="#planos" onclick="showPlanTab('notas')">Notas Fiscais MEI</a>
     <a href="#planos" onclick="showPlanTab('financeiro')">Financeiro</a>
     <a href="#faq">Dúvidas</a>
@@ -713,8 +509,8 @@ footer nav a:hover{color:#fff}
 
 <script>
 function showPlanTab(tab) {
-  var tabs = { atendimento: 'tabAtendimento', notas: 'tabNotas', financeiro: 'tabFinanceiro' };
-  var btns = { atendimento: 'tabBtnAtendimento', notas: 'tabBtnNotas', financeiro: 'tabBtnFinanceiro' };
+  var tabs = { notas: 'tabNotas', financeiro: 'tabFinanceiro' };
+  var btns = { notas: 'tabBtnNotas', financeiro: 'tabBtnFinanceiro' };
   Object.keys(tabs).forEach(function(key) {
     document.getElementById(tabs[key]).classList.toggle('active', key === tab);
     document.getElementById(btns[key]).classList.toggle('active', key === tab);
